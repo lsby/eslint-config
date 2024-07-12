@@ -1,0 +1,12 @@
+{
+  "name": "@lsby/eslint-config",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.8.0",
+    "@typescript-eslint/parser": "^7.8.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-sort-class-members": "^1.20.0",
+    "eslint-plugin-unused-imports": "^3.2.0"
+  }
+}
