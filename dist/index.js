@@ -32,6 +32,9 @@ module.exports = {
 
       // 规则
       rules: {
+        // 拒绝any
+        "@typescript-eslint/no-unsafe-assignment": "error",
+
         // 检查无意义的比较
         "@typescript-eslint/no-unnecessary-condition": [
           "error",
