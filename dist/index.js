@@ -12,6 +12,8 @@ module.exports = {
     "unused-imports",
     // 排序类属性
     "sort-class-members",
+    // jsdoc相关
+    "jsdoc",
   ],
 
   // 解析器
@@ -32,6 +34,9 @@ module.exports = {
 
       // 规则
       rules: {
+        // jsdoc的link必须存在
+        "jsdoc/no-undefined-types": "error",
+
         // 拒绝any
         "@typescript-eslint/no-unsafe-assignment": "error",
 
