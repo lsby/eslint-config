@@ -62,9 +62,6 @@ module.exports = {
           },
         ],
 
-        // 检查没有使用的引入, 并自动修复
-        "unused-imports/no-unused-imports": "error",
-
         // 排序类属性
         "sort-class-members/sort-class-members": [
           2,
