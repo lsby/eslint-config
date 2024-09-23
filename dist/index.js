@@ -8,8 +8,6 @@ module.exports = {
   plugins: [
     // 基础ts支持
     "@typescript-eslint",
-    // 检查没有使用的引入, 并自动修复
-    "unused-imports",
     // 排序类属性
     "sort-class-members",
     // jsdoc相关
