@@ -65,6 +65,9 @@ export var react安全性: Linter.Config = {
     react: reacteslint,
     'react-hooks': reacteslinthooks,
   },
+  settings: {
+    react: { version: 'detect' },
+  },
   rules: {
     // 迭代元素必须有key
     'react/jsx-key': 'error',
