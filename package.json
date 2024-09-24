@@ -15,7 +15,7 @@
     "check:type": "tsc --noEmit",
     "check:type:watch": "tsc --noEmit -w",
     "prepare": "husky",
-    "pub:public": "bumpp && npm publish --access public"
+    "pub:public": "npm run check:all && npm run build:all && bumpp && npm publish --access public"
   },
   "dependencies": {},
   "devDependencies": {
