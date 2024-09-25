@@ -37,12 +37,14 @@ export var ts安全性: Linter.Config = {
     '@typescript-eslint/explicit-function-return-type': ['error', {}],
 
     // 检查没有使用的变量
+    'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': [
       'warn',
       {
-        varsIgnorePattern: '^_',
         argsIgnorePattern: '^_',
+        caughtErrorsIgnorePattern: '^_',
         destructuredArrayIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
       },
     ],
   },
