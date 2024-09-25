@@ -117,6 +117,13 @@ export var 推荐配置: Linter.Config[] = [
   // ..
   忽略常见文件夹,
   ts安全性,
+  jsDoc安全性,
+  风格美化,
+]
+export var 前端推荐配置: Linter.Config[] = [
+  // ..
+  忽略常见文件夹,
+  ts安全性,
   react安全性,
   jsDoc安全性,
   风格美化,
