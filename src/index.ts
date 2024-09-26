@@ -47,6 +47,9 @@ export var ts安全性: Linter.Config = {
         varsIgnorePattern: '^_',
       },
     ],
+
+    // 禁止非空断言运算符
+    '@typescript-eslint/no-non-null-assertion': 'error',
   },
 }
 
