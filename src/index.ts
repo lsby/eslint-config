@@ -1,3 +1,4 @@
+import lsbyEslint from '@lsby/eslint-plugin'
 import type { Linter } from 'eslint'
 import jsdoc from 'eslint-plugin-jsdoc'
 import reacteslint from 'eslint-plugin-react'
@@ -22,6 +23,7 @@ export var ts安全性: Linter.Config = {
   },
   plugins: {
     '@typescript-eslint': tseslint.plugin as any,
+    '@lsby': lsbyEslint,
   },
   rules: {
     // 拒绝any
@@ -50,6 +52,9 @@ export var ts安全性: Linter.Config = {
 
     // 禁止非空断言运算符
     '@typescript-eslint/no-non-null-assertion': 'error',
+
+    // 永远使用let, 拒绝var和const, 并自动修复
+    '@lsby/prefer-let': 'error',
   },
 }
 
