@@ -59,7 +59,7 @@ export var ts安全性: Linter.Config = {
     // 永远使用 === 而不是 ==, 在一些情况下能自动修复
     eqeqeq: ['error', 'always'],
 
-    // 在除了逻辑表达式的地方, 使用??而不是||
+    // 在除了条件表达式的地方, 使用??而不是||
     '@typescript-eslint/prefer-nullish-coalescing': 'error',
 
     // 禁止使用取反
