@@ -1,6 +1,6 @@
 {
   "name": "@lsby/eslint-config",
-  "version": "0.2.10",
+  "version": "0.2.11",
   "type": "module",
   "exports": {
     "require": "./dist/cjs/index.cjs",
@@ -30,7 +30,7 @@
     "tsup": "^8.3.0"
   },
   "peerDependencies": {
-    "@lsby/eslint-plugin": "^0.0.4",
+    "@lsby/eslint-plugin": "^0.0.5",
     "@types/eslint": "^9.6.1",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
