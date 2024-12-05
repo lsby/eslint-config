@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@lsby/eslint-plugin':
-        specifier: ^0.0.4
-        version: 0.0.4(eslint@8.57.1)
+        specifier: ^0.0.6
+        version: 0.0.6(eslint@8.57.1)
       '@types/eslint':
         specifier: ^9.6.1
         version: 9.6.1
@@ -352,8 +352,8 @@ packages:
     resolution: {integrity: sha512-f5DRIOZf7wxogefH03RjMPMdBF7ADTWUMoOs9kaJo06EfwF+aFhMZMDZxHg/Xe12hptN9xoZjGso2fdjapBRIA==}
     engines: {node: '>=10'}
 
-  '@lsby/eslint-plugin@0.0.4':
-    resolution: {integrity: sha512-u/Ha99N4QSmUJVZxB3md102IjAraHO2ISKraeMGFVKqMQTUTiSVRCiPJDw1yu8XQAPxIgFaVm4urnrZ70uz8TQ==}
+  '@lsby/eslint-plugin@0.0.6':
+    resolution: {integrity: sha512-jPEydwGlS8bDnW8rUuGBX8aDUcVN7Pyo/Js68ghpcSXcVG47wZQx1nqbL/TpzFsel1msr2nRpiT+sPsglV1AOQ==}
     peerDependencies:
       eslint: ^8.56.0
 
@@ -2263,7 +2263,7 @@ snapshots:
       string-argv: 0.3.2
       type-detect: 4.1.0
 
-  '@lsby/eslint-plugin@0.0.4(eslint@8.57.1)':
+  '@lsby/eslint-plugin@0.0.6(eslint@8.57.1)':
     dependencies:
       eslint: 8.57.1
 
