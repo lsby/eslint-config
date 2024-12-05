@@ -55,6 +55,12 @@ export var ts安全性: Linter.Config = {
 
     // 永远使用let, 拒绝var和const, 并自动修复
     '@lsby/prefer-let': 'error',
+
+    // 永远使用 === 而不是 ==, 在一些情况下能自动修复
+    eqeqeq: ['error', 'always'],
+
+    // 在除了逻辑表达式的地方, 使用使用??而不是||
+    '@typescript-eslint/prefer-nullish-coalescing': 'error',
   },
 }
 
