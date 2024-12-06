@@ -70,7 +70,10 @@ export var ts安全性: Linter.Config = {
     // 因为null和undefined有区别, 我们不需要两个空值
     // 而js的方法返回的都是undefined
     // 只要我们注意JSON上的转换, 就没有问题
-    '@lsby/no-null': 'error',
+    // '@lsby/no-null': 'error',
+
+    // 禁止使用undefined
+    'no-undefined': 'error',
   },
 }
 
