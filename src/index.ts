@@ -74,6 +74,16 @@ export var ts安全性: Linter.Config = {
 
     // 禁止使用undefined
     'no-undefined': 'error',
+
+    // 条件里必须明确写布尔值, 以避免if('')被理解为假的情况
+    '@typescript-eslint/strict-boolean-expressions': [
+      'error',
+      {
+        allowString: false,
+        allowNumber: false,
+        allowNullableObject: false,
+      },
+    ],
   },
 }
 
