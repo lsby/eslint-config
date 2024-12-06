@@ -4,7 +4,6 @@ import jsdoc from 'eslint-plugin-jsdoc'
 import reacteslint from 'eslint-plugin-react'
 import reacteslinthooks from 'eslint-plugin-react-hooks'
 import sortClassMembers from 'eslint-plugin-sort-class-members'
-import eslintPluginUnicorn from 'eslint-plugin-unicorn'
 import tseslint from 'typescript-eslint'
 
 export var 常用作用域 = ['src/**/*.ts', 'src/**/*.tsx', 'test/**/*.ts', 'test/**/*.tsx']
@@ -25,7 +24,6 @@ export var ts安全性: Linter.Config = {
   plugins: {
     '@typescript-eslint': tseslint.plugin as any,
     '@lsby': lsbyEslint,
-    unicorn: eslintPluginUnicorn,
   },
   rules: {
     // 拒绝any
@@ -64,7 +62,7 @@ export var ts安全性: Linter.Config = {
     // 在除了条件表达式的地方, 使用??而不是||
     '@typescript-eslint/prefer-nullish-coalescing': 'error',
 
-    // 禁止使用取反
+    // 禁止对非布尔值使用取反
     // 对于 number | null 的值x, if(!x)在x等于null和0时都会触发, 这可能是非预期的
     '@lsby/no-negation': 'error',
 
@@ -72,7 +70,7 @@ export var ts安全性: Linter.Config = {
     // 因为null和undefined有区别, 我们不需要两个空值
     // 而js的方法返回的都是undefined
     // 只要我们注意JSON上的转换, 就没有问题
-    'unicorn/no-null': 'error',
+    '@lsby/no-null': 'error',
   },
 }
 
