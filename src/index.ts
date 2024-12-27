@@ -75,6 +75,9 @@ export var ts安全性: Linter.Config = {
     // 禁止使用undefined
     'no-undefined': 'error',
 
+    // 避免使用对象的索引判断null, 因为索引越界时实际值的undefined
+    '@lsby/require-has-check': 'error',
+
     // 条件里必须明确写布尔值, 以避免if('')被理解为假的情况
     '@typescript-eslint/strict-boolean-expressions': [
       'error',
