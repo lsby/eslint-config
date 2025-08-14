@@ -38,6 +38,9 @@ export var ts安全性: Linter.Config = {
     // 必须标注函数返回类型
     '@typescript-eslint/explicit-function-return-type': ['error', {}],
 
+    // 必须为类的属性和方法显式写访问修饰符
+    '@typescript-eslint/explicit-member-accessibility': ['error', { accessibility: 'explicit' }],
+
     // 检查没有使用的变量
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': [
