@@ -42,7 +42,7 @@ export var ts安全性: Linter.Config = {
     '@typescript-eslint/explicit-member-accessibility': ['error', { accessibility: 'explicit' }],
 
     // 禁止类属性使用确定赋值断言语法
-    '@typescript-eslint/no-definite-assignment-assertions': 'error',
+    '@lsby/no-definite-assignment-assertion': 'error',
 
     // 禁止无意义的类型断言
     '@typescript-eslint/no-unnecessary-type-assertion': 'error',
