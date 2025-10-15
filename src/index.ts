@@ -41,6 +41,12 @@ export var ts安全性: Linter.Config = {
     // 必须为类的属性和方法显式写访问修饰符
     '@typescript-eslint/explicit-member-accessibility': ['error', { accessibility: 'explicit' }],
 
+    // 禁止类属性使用确定赋值断言语法
+    '@typescript-eslint/no-definite-assignment-assertions': 'error',
+
+    // 禁止无意义的类型断言
+    '@typescript-eslint/no-unnecessary-type-assertion': 'error',
+
     // 检查没有使用的变量
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': [
