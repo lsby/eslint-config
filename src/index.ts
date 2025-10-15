@@ -63,6 +63,10 @@ export var ts安全性: Linter.Config = {
     '@typescript-eslint/no-non-null-assertion': 'error',
 
     // 永远使用let, 拒绝var和const, 并自动修复
+    // 禁止const是因为它有抽象泄漏
+    // 它只对原语值和指针不变, 不对引用值本身不变
+    // 要搞懂什么可变什么不可变, 必须理解原语值和引用值的区别, 以及变量在内存上的机制
+    // 如果真的需要表达不变, 应该在类型等级写递归只读
     '@lsby/prefer-let': 'error',
 
     // 永远使用 === 而不是 ==, 在一些情况下能自动修复
@@ -75,13 +79,9 @@ export var ts安全性: Linter.Config = {
     // 对于 number | null 的值x, if(!x)在x等于null和0时都会触发, 这可能是非预期的
     '@lsby/no-negation': 'error',
 
-    // 禁止使用null
-    // 因为null和undefined有区别, 我们不需要两个空值
-    // 而js的方法返回的都是undefined
-    // 只要我们注意JSON上的转换, 就没有问题
-    // '@lsby/no-null': 'error',
-
     // 禁止使用undefined
+    // 因为我们不需要两个空值, 总是使用null会更明确
+    // 但js的原生方法返回的都是undefined, 这时候用void 0代替
     'no-undefined': 'error',
 
     // 条件里必须明确写布尔值, 以避免if('')被理解为假的情况
