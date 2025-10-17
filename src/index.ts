@@ -1,5 +1,6 @@
 import lsbyEslint from '@lsby/eslint-plugin'
 import type { Linter } from 'eslint'
+import eslintPluginEs from 'eslint-plugin-es'
 import jsdoc from 'eslint-plugin-jsdoc'
 import reacteslint from 'eslint-plugin-react'
 import reacteslinthooks from 'eslint-plugin-react-hooks'
@@ -24,6 +25,7 @@ export var ts安全性: Linter.Config = {
   plugins: {
     '@typescript-eslint': tseslint.plugin as any,
     '@lsby': lsbyEslint,
+    es: eslintPluginEs,
   },
   rules: {
     // 拒绝any
@@ -93,6 +95,9 @@ export var ts安全性: Linter.Config = {
         allowNullableObject: false,
       },
     ],
+
+    // 禁止使用Object.assign, 它的行为是浅拷贝, 会污染第一个参数
+    'es/no-object-assign': 'error',
   },
 }
 
