@@ -26,27 +26,17 @@ export var ts安全性: Linter.Config = {
     es: eslintPluginEs,
   },
   rules: {
+    // ==================== 避免安全漏洞 ====================
     // 拒绝any
     '@typescript-eslint/no-unsafe-assignment': 'error',
-
-    // 检查无意义的比较
-    '@typescript-eslint/no-unnecessary-condition': ['error', { allowConstantLoopConditions: true }],
-
-    // 拒绝浮动promise
-    '@typescript-eslint/no-floating-promises': 'error',
-
-    // 必须标注函数返回类型
-    '@typescript-eslint/explicit-function-return-type': ['error', {}],
-
-    // 必须为类的属性和方法显式写访问修饰符
-    '@typescript-eslint/explicit-member-accessibility': ['error', { accessibility: 'explicit' }],
-
     // 禁止类属性使用确定赋值断言语法
     '@lsby/no-definite-assignment-assertion': 'error',
+    // 禁止非空断言运算符
+    '@typescript-eslint/no-non-null-assertion': 'error',
 
+    // ==================== 检查无意义的写法 ====================
     // 禁止无意义的类型断言
     '@typescript-eslint/no-unnecessary-type-assertion': 'error',
-
     // 检查没有使用的变量
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': [
@@ -58,40 +48,28 @@ export var ts安全性: Linter.Config = {
         varsIgnorePattern: '^_',
       },
     ],
+    // 检查无意义的比较
+    '@typescript-eslint/no-unnecessary-condition': ['error', { allowConstantLoopConditions: true }],
 
-    // 禁止非空断言运算符
-    '@typescript-eslint/no-non-null-assertion': 'error',
+    // ==================== 异步安全 ====================
+    // 拒绝浮动promise
+    '@typescript-eslint/no-floating-promises': 'error',
+    // await必须要等待thenable
+    '@typescript-eslint/await-thenable': 'error',
 
-    // 永远使用let, 拒绝var和const, 并自动修复
-    // 禁止const是因为它有抽象泄漏
-    // 它只对原语值和指针不变, 不对引用值本身不变
-    // 要搞懂什么可变什么不可变, 必须理解原语值和引用值的区别, 以及变量在内存上的机制
-    // 如果真的需要表达不变, 应该在类型等级写递归只读
-    '@lsby/prefer-let': 'error',
+    // ==================== 避免陷阱 ====================
+    // 禁止使用Object.assign, 它的行为是浅拷贝, 会污染第一个参数
+    'es/no-object-assign': 'error',
 
+    // ==================== 信息需要写完整 ====================
+    // 必须标注函数返回类型
+    '@typescript-eslint/explicit-function-return-type': ['error', {}],
+    // 必须为类的属性和方法显式写访问修饰符
+    '@typescript-eslint/explicit-member-accessibility': ['error', { accessibility: 'explicit' }],
+
+    // ==================== 不依赖非布尔条件 ====================
     // 永远使用 === 而不是 ==, 在一些情况下能自动修复
     eqeqeq: ['error', 'always'],
-
-    // 禁止 else
-    // else 表示"除当前条件外的所有可能"
-    // 当状态集合未来扩展时, 依然会被包含在else分支里, 导致状态遗漏却无任何报错
-    // 应当使用提早返回 或 switch + 穷尽检查
-    'no-else-return': 'error',
-    '@lsby/no-else': 'error',
-    '@typescript-eslint/switch-exhaustiveness-check': 'error',
-
-    // 在除了条件表达式的地方, 使用??而不是||
-    '@typescript-eslint/prefer-nullish-coalescing': 'error',
-
-    // 禁止对非布尔值使用取反
-    // 对于 number | null 的值x, if(!x)在x等于null和0时都会触发, 这可能是非预期的
-    '@lsby/no-negation': 'error',
-
-    // 禁止使用undefined
-    // 因为我们不需要两个空值, 总是使用null会更明确
-    // 但js的原生方法返回的都是undefined, 这时候用void 0代替
-    'no-undefined': 'error',
-
     // 条件里必须明确写布尔值, 以避免if('')被理解为假的情况
     '@typescript-eslint/strict-boolean-expressions': [
       'error',
@@ -101,12 +79,53 @@ export var ts安全性: Linter.Config = {
         allowNullableObject: false,
       },
     ],
+    // 在除了条件表达式的地方, 使用??而不是||
+    '@typescript-eslint/prefer-nullish-coalescing': 'error',
+    // 禁止对非布尔值使用取反
+    // 对于 number | null 的值x, if(!x)在x等于null和0时都会触发, 这可能是非预期的
+    '@lsby/no-negation': 'error',
 
-    // 禁止使用Object.assign, 它的行为是浅拷贝, 会污染第一个参数
-    'es/no-object-assign': 'error',
+    // ==================== 优化心智 ====================
+    // 禁止使用undefined
+    // 因为我们不需要两个空值, 总是使用null会更明确
+    // 但js的原生方法返回的都是undefined, 这时候用void 0代替
+    'no-undefined': 'error',
 
-    // 检查await的thenable
-    '@typescript-eslint/await-thenable': 'error',
+    // ==================== 反虚假安全 ====================
+    // 永远使用let, 拒绝var和const, 并自动修复
+    // 原因:
+    // 1 抽象泄漏
+    // const只约束原语值和指针不变, 不约束引用值本身不变
+    // 使用者要搞懂什么可变什么不可变, 必须理解原语值和引用值的区别, 以及变量在内存上的机制
+    // 这种"必须搞懂背后的原理才能正常使用"的情况是显然的抽象泄漏
+    // 2 误导
+    // 对于新人, 很容易被误解, 导致引用值被意外修改
+    // 3 心智成本
+    // 实际使用时, 即使是const声明值, 也必须确认其是否为引用类型, 若是则还是需要确认所有可能的修改
+    // 这与let无异, 反而增加了心智成本
+    // **错误的信息比没有信息更糟糕**
+    // 替代:
+    // 如果真的需要表达不变, 应该使用类型等级的递归只读, 建模隐藏等方法
+    // 这虽然复杂度更高, 但可以真正保证安全
+    // 这也迫使程序员思考是否真的有必要这样设计, 而不是"随手一用", 提供一个"虚假的安全感"
+    '@lsby/prefer-let': 'error',
+
+    // ==================== 反兜底 ====================
+    // 这几条规则的意图是, 避免当状态扩展后, 新状态被默默归类到兜底分支中
+    // 例如, else 表示"除当前条件外的所有可能"
+    // 但当状态在未来被扩展时, 扩展的状态依然会被包含在else分支里, 导致状态遗漏却无任何报错
+    // 此时, 应该考虑使用提前返回或switch穷尽所有可能, 而不是提供一个默默吃掉所有新状态的兜底逻辑
+    // 这几条规则包括:
+    // - 修剪可以提前返回的else
+    // - 不允许else
+    // - switch的case必须穷尽
+    // - 不允许switch的default分支
+    // - 不允许连续的if判定相同条件
+    'no-else-return': 'error',
+    '@lsby/no-else': 'error',
+    '@typescript-eslint/switch-exhaustiveness-check': 'error',
+    '@lsby/no-switch-default': 'error',
+    '@lsby/prefer-switch-over-multi-if': 'error',
   },
 }
 
