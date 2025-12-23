@@ -72,6 +72,13 @@ export var ts安全性: Linter.Config = {
     // 永远使用 === 而不是 ==, 在一些情况下能自动修复
     eqeqeq: ['error', 'always'],
 
+    // 禁止 if ... else
+    // else 表示"除当前条件外的所有可能"
+    // 当状态集合未来扩展时, 依然会被包含在else分支里, 导致状态遗漏却无任何报错
+    // 应当使用提早返回 或 switch + 穷尽检查
+    'no-else-return': 'error',
+    '@typescript-eslint/switch-exhaustiveness-check': 'error',
+
     // 在除了条件表达式的地方, 使用??而不是||
     '@typescript-eslint/prefer-nullish-coalescing': 'error',
 
