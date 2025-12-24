@@ -118,12 +118,10 @@ export var ts安全性: Linter.Config = {
     // 这几条规则包括:
     // - 修剪可以提前返回的else
     // - 在if是等于或不等于的情况下不允许else
-    // - 禁止等于条件的if提前返回，但允许不等于条件的提前返回
     // - switch的case必须穷尽
     // - 不允许switch的default分支
     'no-else-return': 'error',
     '@lsby/no-else-on-equality': 'error',
-    '@lsby/no-early-return-on-equality': 'error',
     '@typescript-eslint/switch-exhaustiveness-check': 'error',
     '@lsby/no-switch-default': 'error',
   },
