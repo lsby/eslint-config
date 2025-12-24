@@ -30,7 +30,7 @@
     "tsup": "^8.3.0"
   },
   "peerDependencies": {
-    "@lsby/eslint-plugin": "^0.0.20",
+    "@lsby/eslint-plugin": "^0.0.21",
     "@types/eslint": "^9.6.1",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
