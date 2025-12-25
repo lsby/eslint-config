@@ -125,14 +125,12 @@ export var ts安全性: Linter.Config = {
     // 但当状态在未来被扩展时, 扩展的状态依然会被包含在else分支里, 导致状态遗漏却无任何报错
     // 此时, 应该考虑使用提前返回或switch穷尽所有可能, 而不是提供一个默默吃掉所有新状态的兜底逻辑
     // 这几条规则包括:
-    // - 修剪可以提前返回的else
-    // - 在if是等于或不等于的情况下不允许else
     // - switch的case必须穷尽
     // - 不允许switch的default分支
-    'no-else-return': 'error',
-    '@lsby/no-else-on-equality': 'error',
+    // - 对字面量枚举的if-else判断应该用switch穷尽
     '@typescript-eslint/switch-exhaustiveness-check': 'error',
     '@lsby/no-switch-default': 'error',
+    '@lsby/prefer-switch-for-literal-enum': 'error',
   },
 }
 
