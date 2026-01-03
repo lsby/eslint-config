@@ -127,7 +127,7 @@ export var ts安全性: Linter.Config = {
     // 这几条规则包括:
     // - switch的case必须穷尽
     // - 不允许switch的default分支
-    // - 对字面量枚举的if-else判断应该用switch穷尽
+    // - 对字面量枚举的if-else等性判断应该改用switch穷尽
     '@typescript-eslint/switch-exhaustiveness-check': 'error',
     '@lsby/no-switch-default': 'error',
     '@lsby/prefer-switch-for-literal-enum': 'error',
