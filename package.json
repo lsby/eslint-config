@@ -1,6 +1,10 @@
 {
   "name": "@lsby/eslint-config",
   "version": "0.3.15",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lsby/lsby-eslint-config.git"
+  },
   "type": "module",
   "exports": {
     "require": "./dist/cjs/index.cjs",
