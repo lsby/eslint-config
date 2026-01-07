@@ -1,6 +1,6 @@
 # @lsby/eslint-config
 
-个人的这是一个 ESLint 配置包。
+个人的 ESLint 配置包。
 
 ## 使用
 
