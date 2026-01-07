@@ -1,6 +1,6 @@
 {
   "name": "@lsby/eslint-config",
-  "version": "0.3.15",
+  "version": "0.3.16",
   "repository": {
     "type": "git",
     "url": "https://github.com/lsby/lsby-eslint-config.git"
