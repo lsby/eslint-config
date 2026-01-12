@@ -34,11 +34,10 @@
     "tsup": "^8.5.1"
   },
   "peerDependencies": {
-    "@lsby/eslint-plugin": "^0.2.0",
+    "@lsby/eslint-plugin": "^0.2.1",
     "@types/eslint": "^9.6.1",
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-es": "^4.1.0",
     "eslint-plugin-jsdoc": "^62.0.0",
     "eslint-plugin-sort-class-members": "^1.21.0",
     "typescript": "^5.9.3",

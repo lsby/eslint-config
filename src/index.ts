@@ -59,7 +59,7 @@ export var ts安全性: Linter.Config = {
 
     // ==================== 避免陷阱 ====================
     // 禁止使用Object.assign, 它的行为是浅拷贝, 会污染第一个参数
-    'es/no-object-assign': 'error',
+    '@lsby/no-object-assign': 'error',
 
     // ==================== 信息需要写完整 ====================
     // 必须标注函数返回类型
