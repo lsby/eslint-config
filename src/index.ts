@@ -78,7 +78,12 @@ export var ts安全性: Linter.Config = {
       },
     ],
     // 在除了条件表达式的地方, 使用??而不是||
-    '@typescript-eslint/prefer-nullish-coalescing': 'error',
+    '@typescript-eslint/prefer-nullish-coalescing': [
+      'error',
+      {
+        ignoreIfStatements: true,
+      },
+    ],
     // 禁止对非布尔值使用取反
     // 对于 number | null 的值x, if(!x)在x等于null和0时都会触发, 这可能是非预期的
     '@lsby/no-negation': 'error',
