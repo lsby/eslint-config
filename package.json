@@ -1,6 +1,6 @@
 {
   "name": "@lsby/eslint-config",
-  "version": "0.3.17",
+  "version": "0.3.18",
   "repository": {
     "type": "git",
     "url": "https://github.com/lsby/lsby-eslint-config.git"
@@ -34,7 +34,7 @@
     "tsup": "^8.3.0"
   },
   "peerDependencies": {
-    "@lsby/eslint-plugin": "^0.0.30",
+    "@lsby/eslint-plugin": "^0.1.0",
     "@types/eslint": "^9.6.1",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
