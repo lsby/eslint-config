@@ -1,6 +1,5 @@
 import lsbyEslint from '@lsby/eslint-plugin'
 import type { Linter } from 'eslint'
-import eslintPluginEs from 'eslint-plugin-es'
 import jsdoc from 'eslint-plugin-jsdoc'
 import sortClassMembers from 'eslint-plugin-sort-class-members'
 import tseslint from 'typescript-eslint'
@@ -23,7 +22,6 @@ export var ts安全性: Linter.Config = {
   plugins: {
     '@typescript-eslint': tseslint.plugin as any,
     '@lsby': lsbyEslint,
-    es: eslintPluginEs,
   },
   rules: {
     // ==================== 避免安全漏洞 ====================
