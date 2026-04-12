@@ -133,7 +133,7 @@ export var ts安全性: Linter.Config = {
     // - 对字面量枚举的if-else等性判断应该改用switch穷尽
     '@typescript-eslint/switch-exhaustiveness-check': 'error',
     '@lsby/no-switch-default': 'error',
-    '@lsby/prefer-switch-for-literal-enum': 'error',
+    // '@lsby/prefer-switch-for-literal-enum': 'error',
     // ==================== 维护性 ====================
     // 限制单文件行数
     'max-lines': ['error', { max: 500, skipBlankLines: true, skipComments: true }],
