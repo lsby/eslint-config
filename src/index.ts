@@ -92,7 +92,7 @@ export var ts安全性: Linter.Config = {
     // 禁止使用undefined
     // 因为我们不需要两个空值, 总是使用null会更明确
     // 但js的原生方法返回的都是undefined, 这时候用void 0代替
-    'no-undefined': 'error',
+    // 'no-undefined': 'error',
 
     // ==================== 反虚假安全 ====================
     // 永远使用let, 拒绝var和const, 并自动修复
