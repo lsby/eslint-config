@@ -89,7 +89,7 @@ export var ts安全性: Linter.Config = {
     '@lsby/no-negation': 'error',
 
     // ==================== 优化心智 ====================
-    // 禁止使用undefined
+    // 禁止使用undefined (暂时放弃)
     // 因为我们不需要两个空值, 总是使用null会更明确
     // 但js的原生方法返回的都是undefined, 这时候用void 0代替
     // 'no-undefined': 'error',
@@ -130,7 +130,7 @@ export var ts安全性: Linter.Config = {
     // 这几条规则包括:
     // - switch的case必须穷尽
     // - 不允许switch的default分支
-    // - 对字面量枚举的if-else等性判断应该改用switch穷尽
+    // - 对字面量枚举的if-else等性判断应该改用switch穷尽 (暂时放弃)
     '@typescript-eslint/switch-exhaustiveness-check': 'error',
     '@lsby/no-switch-default': 'error',
     // '@lsby/prefer-switch-for-literal-enum': 'error',
